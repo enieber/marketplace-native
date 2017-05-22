@@ -1,0 +1,3 @@
+rootProject.name = 'tw'
+
+include ':app'

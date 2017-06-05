@@ -3,9 +3,10 @@ import { Provider } from 'react-redux';
 
 import Store from './Store';
 import BaseNavigation from './Router';
+const StoreInstance = Store();
 
 const App = () => (
-  <Provider store={Store}>
+  <Provider store={StoreInstance}>
     <BaseNavigation />
   </Provider>
 );

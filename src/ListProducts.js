@@ -1,8 +1,14 @@
 import React, { Component } from 'react';
 import {
   ListView,
+  TouchableOpacity,
   Text,
 } from 'react-native';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
+import { addNavigationHelpers } from 'react-navigation';
+
+import * as actions from './actions'
 import Product from './Product';
 import { getProducts } from './api';
 
@@ -36,6 +42,11 @@ class ListProducts extends Component {
 
   }
 
+  addProduct(product) {    
+    this.props.action.addProduct(product);
+    console.log(this.props);
+  }
+
   render() {
     return(
       <ListView
@@ -44,18 +55,34 @@ class ListProducts extends Component {
       }
       renderRow={
         (rowData) => (
+          <TouchableOpacity
+            onPress={() => this.props.navigation.navigate('ProductDetails', {name:rowData.name})}
+            >
           <Product
             key={rowData.id}
             name={rowData.name}
             price={rowData.price}
             image={rowData.image}
             description={rowData.description}
+            addCart={() => this.addProduct(rowData)}
             />
+          </TouchableOpacity>
           )
       } />
     )
   }
 }
 
-export default ListProducts;
+const mapStateToProps = (state) => {
+  return {
+    product: state.product,
+  };
+};
 
+const mapDispatchToProps = (dispatch) => {
+  return {
+    action:bindActionCreators(actions, dispatch)
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(ListProducts);

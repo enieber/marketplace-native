@@ -3,9 +3,10 @@ import {
   View,
   Text,
   Image,
+  Button,
 } from 'react-native';
 
-const Product = ({ image, price, name, description }) => (
+const Product = ({ image, price, name, description, addCart }) => (
       <View
          style={{
           display: 'flex',
@@ -49,24 +50,23 @@ const Product = ({ image, price, name, description }) => (
               `R$ ${ price }` 
           }
         </Text>
-         {/*<div
+        <View
           style={{            
            justifyContent: 'center',
           }}
         >
  
-        <button
-          onClick={() => addCart()}
+        <Button
+          title="Buy"
+          onPress={() => addCart()}
           style={{
             width: '80%',
             height: '2.5em',
             border: 'none',
             backgroundColor: '#ed6b86',
             color: 'white',
-          }}>
-          Buy
-        </button>
-        </div>*/}
+          }}/>
+        </View>
       </View>
     );
 

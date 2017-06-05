@@ -1,10 +1,15 @@
 import { StackNavigator } from 'react-navigation';
 
-import Main from './Main';
+import ListProducts from './ListProducts';
 import ProductDetails from './ProductDetails';
 
 const BaseNavigation = StackNavigator({
-  Main: { screen: Main },
+  ListProducts: {
+    screen: ListProducts,
+    navigationOptions: {
+        header: null,
+      },
+    },
   ProductDetails: { screen: ProductDetails },
 });
 

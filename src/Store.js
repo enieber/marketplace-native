@@ -1,8 +1,15 @@
-import { createStore, applyMiddleware } from 'redux';
+import { combineReducers, createStore, applyMiddleware } from 'redux';
 import ReduxThunk from 'redux-thunk';
+import logger from 'redux-logger'
 
-import reducers from './reducers';
+import product from './reducers/product';
+import nav from './reducers/navigation';
 
-const store = createStore(reducers, {}, applyMiddleware(ReduxThunk));
+const rootReducer = combineReducers({
+  product,
+  nav, 
+});
 
-export default store;
+export default(initialState) => {
+  return createStore(rootReducer, initialState, applyMiddleware(ReduxThunk, logger))
+}

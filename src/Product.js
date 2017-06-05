@@ -11,8 +11,7 @@ const Product = ({ image, price, name, description }) => (
           display: 'flex',
           flex: 1,
           margin: 15,
-          backgroundColor: '#fbe1e0',  
-          textAlign: 'center',
+          backgroundColor: '#fbe1e0',
           flexDirection: 'column',
        }}>
         <View
@@ -33,17 +32,19 @@ const Product = ({ image, price, name, description }) => (
           </View>
         <Text
           style={{
-            alingText: 'center',
+            textAlign: 'center',
             color: '#463239',
           }}> { name } </Text>
         <Text
         style={{
-            color: '#463239',
-          }}> { description } </Text>
+          textAlign: 'center',
+          color: '#463239',
+        }}> { description } </Text>
         <Text
         style={{
-            color: '#463239',
-            }}>
+          textAlign: 'center',
+          color: '#463239',
+        }}>
             {
               `R$ ${ price }` 
           }

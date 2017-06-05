@@ -4,8 +4,7 @@ import {
   Text,
 } from 'react-native';
 import Product from './Product';
-import { users } from './api';
-import User from './User';
+import { getProducts } from './api';
 
 class ListProducts extends Component {
   constructor() {
@@ -14,23 +13,22 @@ class ListProducts extends Component {
       rowHasChanged: (r1, r2) => r1 !== r2
     });
     this.state = {
-    dataSource: ds.cloneWithRows(['use1', 'user3']),
+      dataSource: ds.cloneWithRows(['use1', 'user3']),
     };   
   }
 
   componentWillMount() {
-    this.getUsers();
+    this.productsList();
   }
 
-  async getUsers() {
+  async productsList() {
     try {
-      const s = await users()
-      console.log(s.data)
+      const products = await getProducts()
       const ds = new ListView.DataSource({
         rowHasChanged: (r1, r2) => r1 !== r2
       });
       this.setState({
-        dataSource: ds.cloneWithRows(s.data),
+        dataSource: ds.cloneWithRows(products.data),
       })
     } catch(err) {
       alert(err);

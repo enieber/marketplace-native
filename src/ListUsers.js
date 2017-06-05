@@ -50,7 +50,6 @@ class ListUsers extends Component {
             key={rowData.id}
             name={rowData.name}
             price={rowData.price}
-            id={rowData.id}
             image={rowData.image}
             description={rowData.description}
             />

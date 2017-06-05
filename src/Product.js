@@ -5,7 +5,7 @@ import {
   Image,
 } from 'react-native';
 
-const Product = props => (
+const Product = ({ image, price, name, description }) => (
       <View
          style={{
           display: 'flex',
@@ -21,7 +21,7 @@ const Product = props => (
             }}
           >
           <Image
-            source={{uri: props.image}}
+            source={{uri: image}}
             style={{
               width: 100,
               height: 80,
@@ -35,17 +35,17 @@ const Product = props => (
           style={{
             alingText: 'center',
             color: '#463239',
-          }}> { props.name } </Text>
+          }}> { name } </Text>
         <Text
         style={{
             color: '#463239',
-          }}> { props.description } </Text>
+          }}> { description } </Text>
         <Text
         style={{
             color: '#463239',
             }}>
             {
-              `R$ ${ props.price }` 
+              `R$ ${ price }` 
           }
         </Text>
          {/*<div

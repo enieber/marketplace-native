@@ -4,12 +4,13 @@ import {
   View,
 } from 'react-native';
 
-import ListUsers from './ListUsers';
+import ListProducts from './ListProducts';
 
 class App extends Component {
+  
   render() {
       return (
-        <ListUsers />
+        <ListProducts />
       );
     }
 }

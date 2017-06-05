@@ -7,7 +7,7 @@ import Product from './Product';
 import { users } from './api';
 import User from './User';
 
-class ListUsers extends Component {
+class ListProducts extends Component {
   constructor() {
     super();
     const ds = new ListView.DataSource({
@@ -59,5 +59,5 @@ class ListUsers extends Component {
   }
 }
 
-export default ListUsers;
+export default ListProducts;
 

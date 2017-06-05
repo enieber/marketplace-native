@@ -7,9 +7,10 @@ import {
 class User extends Component {
 
   render() {
+    console.log(this)
     return (
       <View>
-        <Text>User</Text>
+        <Text> { props.user } </Text>
         <Text>id</Text>
       </View>
     );
